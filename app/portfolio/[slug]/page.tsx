@@ -23,8 +23,13 @@ export function generateStaticParams() {
   }))
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projects[params.slug as keyof typeof projects]
+interface ProjectPageProps {
+  params: Promise<{ slug: string }>
+}
+
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = projects[slug as keyof typeof projects]
 
   if (!project) {
     notFound()
