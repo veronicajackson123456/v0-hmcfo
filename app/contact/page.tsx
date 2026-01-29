@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, UsersIcon,Phone, MapPin } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -59,11 +59,11 @@ export default function ContactPage() {
           </div>
           <div className="border border-gray-800 bg-black/30 p-8 text-center">
             <div className="mb-4 inline-block rounded-sm border border-gray-700 p-4">
-              <Phone className="h-8 w-8 text-[#d4a574]" />
+              <UsersIcon className="h-8 w-8 text-[#d4a574]" />
             </div>
-            <h3 className="mb-3 text-xl font-light text-white">Phone</h3>
+            <h3 className="mb-3 text-xl font-light text-white">{"Customer Support"}</h3>
             <a href="tel:+447400730791" className="text-gray-400 transition-colors hover:text-[#d4a574]">
-              +44 7400 730791
+              www.customerhelp.cc contact@customerhelp.cc  
             </a>
           </div>
           <div className="border border-gray-800 bg-black/30 p-8 text-center">
