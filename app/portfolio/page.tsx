@@ -6,7 +6,7 @@ const projects = [
     title: "A Beautiful Kill",
     subtitle: "A psychological thriller redefining cinematic storytelling",
     badge: "UPCOMING RELEASE",
-    image: "https://www.hmcfo.cc/1.jpg",
+    image: "/a-beautiful-kill-hero.jpg",
   },
 ]
 

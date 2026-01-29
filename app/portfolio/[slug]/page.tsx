@@ -12,8 +12,8 @@ const projects = {
     genre: "Drama",
     release: "2025",
     tags: ["Psychological Thriller", "Suspense", "Spain Production"],
-    videoUrl: "https://www.hmcfo.cc/1.jpg",
-    images: ["https://www.hmcfo.cc/1.jpg"],
+    videoUrl: "/a-beautiful-kill-poster.jpg",
+    images: ["/a-beautiful-kill-hero.jpg", "/a-beautiful-kill-poster.jpg", "/a-beautiful-kill-scene.jpg"],
   },
 }
 
