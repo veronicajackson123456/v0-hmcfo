@@ -113,7 +113,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-4 text-center text-3xl font-light text-white">Send Us a Message</h2>
           <p className="mb-12 text-center text-gray-400">
-            Fill out the form below, and we'll get back to you within 24 hours
+            Fill out the form below, and we&apos;ll get back to you within 24 hours!
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
