@@ -89,21 +89,40 @@ export default function ContactPage() {
       {/* Registered Office */}
       <section className="bg-[#1a1f3a] px-4 py-8">
         <div className="mx-auto max-w-6xl">
-          <div className="border border-gray-800 bg-black/30 p-8 text-center">
-            <h3 className="mb-4 text-xl font-light text-white">Registered Office</h3>
-            <p className="text-sm text-gray-400">
-              HMCFO LTD
-              <br />
-              Co no. 16814928
-              <br />
-              Silverstream House
-              <br />
-              Fitzroy Street
-              <br />
-              Fitzrovia, London
-              <br />
-              W1T 6EB
-            </p>
+          <div className="border-2 border-[#d4a574] bg-gradient-to-br from-[#d4a574]/10 to-transparent p-8">
+            <div className="grid gap-8 md:grid-cols-2 md:items-center">
+              <div>
+                <h3 className="mb-4 text-2xl font-light text-white">Company Information</h3>
+                <div className="space-y-3 text-sm text-gray-300">
+                  <p>
+                    <span className="font-semibold text-[#d4a574]">Company Name:</span> HMCFO LTD
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#d4a574]">Company Registration No:</span> 16814928
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#d4a574]">Jurisdiction:</span> England & Wales
+                  </p>
+                  <p>
+                    <span className="font-semibold text-[#d4a574]">Registration Status:</span> Active
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#d4a574]">Registered Address</p>
+                <p className="text-lg text-white">
+                  HMCFO LTD
+                  <br />
+                  Silverstream House
+                  <br />
+                  Fitzroy Street
+                  <br />
+                  Fitzrovia, London
+                  <br />
+                  W1T 6EB
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
