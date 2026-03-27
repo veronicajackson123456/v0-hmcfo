@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-black px-4 py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-5">
           {/* Logo & Tagline */}
           <div>
             <Link href="/" className="mb-4 inline-block">
@@ -103,6 +103,21 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
+          </div>
+
+          {/* Company Details */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white">Company Details</h3>
+            <div className="space-y-4">
+              <div className="border border-[#d4a574] bg-[#d4a574]/10 px-4 py-3">
+                <p className="text-xs text-gray-400">Company Registration</p>
+                <p className="text-lg font-semibold text-[#d4a574]">Co no. 16814928</p>
+              </div>
+              <div className="text-sm text-gray-400">
+                <p className="font-semibold text-white">HMCFO LTD</p>
+                <p>UK Registered Company</p>
+              </div>
+            </div>
           </div>
         </div>
 

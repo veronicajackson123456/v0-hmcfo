@@ -135,6 +135,29 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Company Credentials */}
+      <section className="bg-[#0a0e27] px-4 py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="border border-[#d4a574] bg-[#d4a574]/5 p-8">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#d4a574]">Company Registration</p>
+              <p className="text-3xl font-semibold text-white">Co no. 16814928</p>
+              <p className="mt-4 text-sm text-gray-400">Registered in England & Wales</p>
+            </div>
+            <div className="border border-gray-800 bg-black/30 p-8">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#d4a574]">Established</p>
+              <p className="text-3xl font-semibold text-white">15+ Years</p>
+              <p className="mt-4 text-sm text-gray-400">Industry experience in film advertising</p>
+            </div>
+            <div className="border border-gray-800 bg-black/30 p-8">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#d4a574]">Office</p>
+              <p className="text-lg font-semibold text-white">London, UK</p>
+              <p className="mt-4 text-sm text-gray-400">Fitzrovia, London W1T 6EB</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-[#0a0e27] px-4 py-16 text-center">
         <h2 className="mb-4 text-3xl font-light text-white">Let's bring your vision to life — talk to us today.</h2>
