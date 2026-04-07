@@ -1,9 +1,4 @@
-export default function TermsConditionsPage() {
-  return (
-    <div className="min-h-screen bg-[#0a0e27]">
-      <div className="mx-auto max-w-4xl px-4 py-16">
-        <h1 className="mb-8 text-center text-5xl font-light text-white">Terms & Conditions</h1>
-        <p className="mb-12 text-center text-gray-400">Last Updated: November 2025</p>
+import { redirect } from "next/navigation"
 
         {/* Company Info Banner */}
         <div className="mb-12 border-2 border-[#d4a574] bg-[#d4a574]/5 p-6">
@@ -115,10 +110,8 @@ export default function TermsConditionsPage() {
             <h2 className="mb-4 text-2xl font-light text-white">11. Contact Us</h2>
             <p className="leading-relaxed">
               For any questions about these Terms & Conditions, contact us:
-              <br />
-              Email: info@hmcfo.cc
-              <br />
-              Website: www.hmcfo.co.uk
+              <br />📧 info@hmcfo.co.uk
+              <br />🌐 www.hmcfo.co.uk
             </p>
           </section>
         </div>

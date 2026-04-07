@@ -1,167 +1,235 @@
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { CheckCircle2, MapPin, Briefcase } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0a0e27]">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-gray-800 bg-[#0a0e27]/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="text-xl font-light text-white">
-              HMCFO<span className="text-[#d4a574]">.</span>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Header/Navigation */}
+      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          <Link href="/" className="flex items-center gap-3">
+            <Briefcase className="w-8 h-8 text-blue-600" strokeWidth={2} />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-gray-900 leading-tight">HMCFO LTD</span>
+              <span className="text-xs text-gray-600 leading-tight">Business Solutions</span>
+              <span className="text-xs text-gray-500 leading-tight">#16814928</span>
             </div>
           </Link>
-          <div className="hidden gap-8 md:flex">
-            <Link href="/" className="text-sm text-gray-400 transition-colors hover:text-[#d4a574]">
+          <nav className="hidden md:flex items-center gap-6">
+            <Link href="/" className="text-sm font-medium hover:text-blue-600 transition-colors">
               Home
             </Link>
-            <Link href="/services" className="text-sm text-gray-400 transition-colors hover:text-[#d4a574]">
+            <Link href="/services" className="text-sm font-medium hover:text-blue-600 transition-colors">
               Services
             </Link>
-            <Link href="/about" className="text-sm text-gray-400 transition-colors hover:text-[#d4a574]">
+            <Link href="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">
               About
             </Link>
-            <Link href="/contact" className="text-sm text-gray-400 transition-colors hover:text-[#d4a574]">
+            <Link href="/contact" className="text-sm font-medium hover:text-blue-600 transition-colors">
               Contact
             </Link>
+          </nav>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button asChild className="bg-blue-600 hover:bg-blue-700">
+              <Link href="/contact">Get Started</Link>
+            </Button>
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded border border-[#d4a574] px-4 py-2 text-sm font-light text-[#d4a574] transition-all hover:bg-[#d4a574]/10"
-          >
-            Get Started
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
-      </nav>
+      </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 py-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-5xl font-light leading-tight text-white md:text-6xl">
-            Your Trusted Partner in <span className="text-[#d4a574]">Business Growth</span>
+      <section className="container mx-auto px-4 py-20 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight text-balance">
+            Your Trusted Partner in{" "}
+            <span className="text-blue-600">Business Growth</span>
           </h1>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-400 leading-relaxed">
-            HMCFO LTD delivers comprehensive business support services designed to help your company thrive in today's competitive landscape.
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed text-pretty">
+            HMCFO LTD provides comprehensive business support services to help your company thrive. From administrative
+            support to human resources and more, we&apos;ve got you covered.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded bg-[#d4a574] px-8 py-3 font-light text-black transition-all hover:bg-[#d4a574]/90"
-            >
-              Start Your Journey
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center gap-2 rounded border border-[#d4a574] px-8 py-3 font-light text-[#d4a574] transition-all hover:bg-[#d4a574]/10"
-            >
-              Explore Services
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Link href="/services">Explore Our Services</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/contact">Contact Us Today</Link>
+            </Button>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <span>UK Registered Company</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <span>Professional Services</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <span>Dedicated Support</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="border-t border-gray-800 px-4 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-light text-white">Our Services</h2>
-            <p className="text-gray-400">Comprehensive solutions tailored to your business needs</p>
+      {/* Services Overview */}
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-balance">Comprehensive Business Services</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-pretty">
+              We offer a wide range of professional services designed to support every aspect of your business operations.
+            </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Administrative Support',
-                desc: 'Virtual assistance and document management to streamline your operations.',
+                title: "Administrative Support",
+                desc: "Virtual assistance, document management, and office workflow optimisation.",
+                icon: "📝",
               },
               {
-                title: 'Business Consultancy',
-                desc: 'Strategic planning and operational efficiency reviews for sustainable growth.',
+                title: "Business Consultancy",
+                desc: "Strategic planning, market research, and operational efficiency reviews.",
+                icon: "💼",
               },
               {
-                title: 'HR & Staffing Solutions',
-                desc: 'Recruitment, HR policy creation, and employee relations management.',
+                title: "Human Resources & Staffing",
+                desc: "Recruitment, HR policy creation, payroll, and employee relations.",
+                icon: "👔",
               },
               {
-                title: 'Marketing & Branding',
-                desc: 'Brand strategy, SEO, social media management, and digital campaigns.',
+                title: "Marketing & Branding",
+                desc: "Brand strategy, SEO, social media management, and email campaigns.",
+                icon: "📢",
               },
               {
-                title: 'IT & Digital Solutions',
-                desc: 'Website development, cloud infrastructure, and cybersecurity services.',
+                title: "IT & Digital Solutions",
+                desc: "Website development, cloud infrastructure, and cybersecurity.",
+                icon: "💻",
               },
               {
-                title: 'Compliance & Legal',
-                desc: 'Regulatory compliance, GDPR, and comprehensive policy review services.',
+                title: "Compliance & Legal Administration",
+                desc: "Regulatory compliance, GDPR, contract management, and policy review.",
+                icon: "⚖️",
               },
             ].map((service) => (
-              <div
-                key={service.title}
-                className="border border-gray-800 bg-black/30 p-6 transition-all hover:border-[#d4a574] hover:bg-[#d4a574]/5"
-              >
-                <h3 className="mb-2 text-lg font-light text-white">{service.title}</h3>
-                <p className="text-sm text-gray-400">{service.desc}</p>
-              </div>
+              <Card key={service.title} className="hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="text-3xl mb-3">{service.icon}</div>
+                  <h3 className="font-semibold text-gray-900 mb-2">{service.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{service.desc}</p>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Link href="/services">View All Services</Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="border-t border-gray-800 px-4 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-16 lg:grid-cols-2">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="mb-8 text-4xl font-light text-white">Why Choose HMCFO?</h2>
-              <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-balance">
+                Why Choose HMCFO LTD?
+              </h2>
+              <div className="space-y-4">
                 {[
-                  'Experienced professionals with years of industry expertise',
-                  'Tailored solutions customized to your specific business needs',
-                  'Cost-effective services without long-term commitments',
-                  'UK Registered Company (Co no. 16814928)',
+                  {
+                    title: "Experienced Professionals",
+                    desc: "Our team brings years of expertise across multiple business disciplines.",
+                  },
+                  {
+                    title: "Tailored Solutions",
+                    desc: "We customise our services to meet your specific business needs and goals.",
+                  },
+                  {
+                    title: "Cost-Effective",
+                    desc: "Get premium business support without the overhead of full-time employees.",
+                  },
+                  {
+                    title: "UK Registered",
+                    desc: "Fully registered company in England & Wales (Co no. 16814928).",
+                  },
                 ].map((item) => (
-                  <div key={item} className="flex gap-3">
-                    <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-[#d4a574]" />
-                    <p className="text-gray-300">{item}</p>
+                  <div key={item.title} className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
+                      <p className="text-sm text-gray-600">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="border-2 border-[#d4a574] bg-[#d4a574]/5 p-8">
-              <h3 className="mb-6 text-2xl font-light text-white">Ready to Transform Your Business?</h3>
-              <p className="mb-8 text-gray-300">
-                Let our expert team help you achieve your business objectives with proven strategies and professional support.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 w-full rounded bg-[#d4a574] px-8 py-3 font-light text-black transition-all hover:bg-[#d4a574]/90"
-              >
-                Get in Touch
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+            <div className="bg-blue-600 rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
+                </div>
+              </div>
+              <Button asChild className="mt-6 bg-white text-blue-600 hover:bg-gray-100 w-full">
+                <Link href="/contact">Send Us a Message</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="border-t border-gray-800 px-4 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-4xl font-light text-white">Let's Grow Together</h2>
-          <p className="mb-8 text-gray-400">
-            Join businesses across the UK who trust HMCFO LTD for their professional support needs.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded bg-[#d4a574] px-8 py-3 font-light text-black transition-all hover:bg-[#d4a574]/90"
-          >
-            Schedule a Consultation
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Briefcase className="w-6 h-6 text-white" />
+                <span className="text-white font-bold">HMCFO LTD</span>
+              </div>
+              <p className="text-sm">Your trusted partner in business growth, efficiency, and success.</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
+              <ul className="space-y-2">
+                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Administrative Support</Link></li>
+                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Business Consultancy</Link></li>
+                <li><Link href="/services" className="text-sm hover:text-white transition-colors">HR & Staffing</Link></li>
+                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Marketing & Branding</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
+              <ul className="space-y-2">
+                <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="text-sm hover:text-white transition-colors">Terms & Conditions</Link></li>
+                <li><Link href="/disclaimer" className="text-sm hover:text-white transition-colors">Disclaimer</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">Contact Info</h4>
+              <div className="space-y-3">
+                <div className="flex items-start gap-2 mt-2">
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                  <p className="text-xs leading-relaxed">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center text-sm">
+            <p>&copy; {new Date().getFullYear()} HMCFO LTD. All rights reserved.</p>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
   )
 }
