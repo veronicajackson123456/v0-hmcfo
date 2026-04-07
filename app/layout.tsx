@@ -10,9 +10,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "HMCFO LTD - Comprehensive Business Support Services",
   description:
-    "Your trusted partner in growth, efficiency, and success. HMCFO LTD provides comprehensive business support services including administrative support, financial management, HR, consultancy, and more.",
+    "Your trusted partner in growth, efficiency, and success. HMCFO LTD provides comprehensive business support services including administrative support, HR, consultancy, and more.",
   keywords:
-    "business support, financial management, administrative services, HR solutions, business consultancy, HMCFO",
+    "business support, administrative services, HR solutions, business consultancy, HMCFO",
   authors: [{ name: "HMCFO LTD" }],
   openGraph: {
     title: "HMCFO LTD - Comprehensive Business Support Services",

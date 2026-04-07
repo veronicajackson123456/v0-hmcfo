@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Briefcase } from "lucide-react"
+import { MapPin, Briefcase } from "lucide-react"
 
 export default function AboutPage() {
   return (
@@ -52,8 +52,7 @@ export default function AboutPage() {
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Our team of experienced professionals provides tailored solutions across a wide range of business
-                functions, from administrative support and financial management to human resources and digital
-                transformation.
+                functions, from administrative support to human resources and digital transformation.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We believe that every business deserves access to high-quality professional services, regardless of
@@ -156,14 +155,6 @@ export default function AboutPage() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Contact Info</h4>
               <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+16468205995" className="text-sm hover:text-white transition-colors">+1 (646) 820 5995</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:contact@customerhelp.cc" className="text-sm hover:text-white transition-colors">contact@customerhelp.cc</a>
-                </div>
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                   <p className="text-xs leading-relaxed">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
