@@ -1,236 +1,124 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Briefcase } from "lucide-react"
+import { Briefcase, Film, Smartphone, Palette, MapPin, Users } from "lucide-react"
+
+const services = [
+  {
+    number: "01",
+    icon: Briefcase,
+    title: "Film Launch Campaigns",
+    description:
+      "Strategic multi-channel campaigns — from teaser to premiere — that build awareness, anticipation, and box office success.",
+    image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80",
+  },
+  {
+    number: "02",
+    icon: Film,
+    title: "Cinema Branding & Marketing",
+    description:
+      "Brand identity design, promotional materials, and audience engagement strategies tailored for cinema networks and local theatres.",
+    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
+  },
+  {
+    number: "03",
+    icon: Smartphone,
+    title: "Digital & Social Media Advertising",
+    description:
+      "Performance-driven campaigns across YouTube, Meta, TikTok, and streaming platforms — built to connect with target audiences at scale.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+  },
+  {
+    number: "04",
+    icon: Palette,
+    title: "Creative Production & Design",
+    description:
+      "High-impact visuals, posters, trailers, and motion graphics with cinematic quality that reinforce your brand identity.",
+    image: "https://images.unsplash.com/photo-1574267432644-f74f5503f5bb?w=800&q=80",
+  },
+  {
+    number: "05",
+    icon: MapPin,
+    title: "Outdoor & Experiential Advertising",
+    description:
+      "Immersive campaigns, billboard designs, and event activations that transform public spaces into storytelling experiences.",
+    image: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=800&q=80",
+  },
+  {
+    number: "06",
+    icon: Users,
+    title: "Public Relations & Influencer Collaboration",
+    description:
+      "Integrated PR and influencer outreach to amplify your message across traditional and digital media channels.",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+  },
+]
 
 export default function ServicesPage() {
-  const services = [
-    {
-      icon: "📝",
-      title: "Administrative Support",
-      description: "Keep your operations running smoothly with our efficient administrative services.",
-      details: [
-        "Virtual assistant and secretarial services",
-        "Email and calendar management",
-        "Document processing and data entry",
-        "CRM and database management",
-        "Office workflow setup and optimisation",
-      ],
-    },
-    {
-      icon: "💼",
-      title: "Business Consultancy",
-      description: "Strategic insight for smarter decisions.",
-      details: [
-        "Business planning and performance improvement",
-        "Market research and feasibility studies",
-        "Operational efficiency reviews",
-        "Risk and compliance assessment",
-        "Change management and restructuring",
-      ],
-    },
-    {
-      icon: "👔",
-      title: "Human Resources & Staffing",
-      description: "Build the team your business deserves.",
-      details: [
-        "Recruitment and onboarding",
-        "HR policy creation and compliance",
-        "Employee relations and performance management",
-        "Payroll and benefits administration",
-        "Outsourced HR and interim staffing",
-      ],
-    },
-    {
-      icon: "📢",
-      title: "Marketing & Branding",
-      description: "Grow your audience and strengthen your presence.",
-      details: [
-        "Brand strategy and visual identity",
-        "Website content and SEO",
-        "Social media management",
-        "Email marketing and campaigns",
-        "Market positioning and competitor analysis",
-      ],
-    },
-    {
-      icon: "💻",
-      title: "IT & Digital Solutions",
-      description: "Technology that works for your business.",
-      details: [
-        "Website design and development",
-        "Cloud infrastructure and migration",
-        "Cybersecurity and data protection",
-        "Software integration and automation",
-        "IT support and managed services",
-      ],
-    },
-    {
-      icon: "🌐",
-      title: "Networking & Business Development",
-      description: "Open doors and build lasting partnerships.",
-      details: [
-        "B2B introductions and partnership facilitation",
-        "Industry event representation",
-        "Strategic alliance development",
-        "Sales pipeline support",
-        "Business expansion planning",
-      ],
-    },
-    {
-      icon: "⚖️",
-      title: "Compliance & Legal Administration",
-      description: "Stay protected, stay compliant.",
-      details: [
-        "Regulatory compliance guidance",
-        "GDPR and data protection support",
-        "Contract review and drafting assistance",
-        "Company secretarial services",
-        "Policy development and review",
-      ],
-    },
-    {
-      icon: "🏢",
-      title: "Virtual Office & Outsourcing",
-      description: "A professional presence without the overhead.",
-      details: [
-        "Registered office address services",
-        "Mail handling and forwarding",
-        "Call answering and reception services",
-        "Meeting room access",
-        "Full back-office outsourcing",
-      ],
-    },
-  ]
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-3">
-            <Briefcase className="w-8 h-8 text-blue-600" strokeWidth={2} />
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-gray-900 leading-tight">HMCFO LTD</span>
-              <span className="text-xs text-gray-600 leading-tight">Business Solutions</span>
-              <span className="text-xs text-gray-500 leading-tight">#: 16814928</span>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium hover:text-blue-600 transition-colors">Home</Link>
-            <Link href="/services" className="text-sm font-medium text-blue-600">Services</Link>
-            <Link href="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">About</Link>
-            <Link href="/contact" className="text-sm font-medium hover:text-blue-600 transition-colors">Contact</Link>
-          </nav>
-          <Button asChild className="bg-blue-600 hover:bg-blue-700">
-            <Link href="/contact">Get Started</Link>
-          </Button>
+    <div className="min-h-screen bg-[#0a0e27]">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-      </header>
-
-      {/* Page Header */}
-      <section className="bg-blue-600 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-          <p className="text-blue-100 text-lg max-w-2xl mx-auto">
-            Comprehensive business support services tailored to help your company thrive.
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+          <p className="mb-4 text-sm tracking-widest text-[#d4a574]">WHAT WE DO</p>
+          <h1 className="mb-6 text-5xl font-light text-white md:text-6xl">Our Services</h1>
+          <p className="max-w-2xl text-lg text-gray-300">
+            Comprehensive Advertising Solutions for the Film & Cinema Industry
           </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Intro Section */}
+      <section className="bg-gradient-to-b from-[#0a0e27] to-[#1a1f3a] px-4 py-16">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-xl leading-relaxed text-gray-300">
+            From <span className="text-white">concept development</span> to{" "}
+            <span className="text-white">campaign execution</span>, HMCFO provides a complete range of services designed
+            to meet the unique marketing demands of film studios, distributors, and cinemas.
+          </p>
+        </div>
+      </section>
+
+      {/* Expertise Section */}
+      <section className="bg-[#1a1f3a] px-4 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-4 text-center text-4xl font-light text-white">Expertise That Delivers Results</h2>
+          <p className="mb-16 text-center text-gray-400">Six core services designed to elevate your brand</p>
+
+          <div className="grid gap-8 md:grid-cols-2">
             {services.map((service) => (
-              <Card key={service.title} className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <span className="text-2xl">{service.icon}</span>
-                    <span>{service.title}</span>
-                  </CardTitle>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-2 text-sm text-gray-600">
-                        <span className="text-blue-600 mt-0.5">•</span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div
+                key={service.number}
+                className="group relative overflow-hidden border border-gray-800 bg-black/30 transition-all hover:border-[#d4a574]"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={service.image || "/placeholder.svg"}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                </div>
+                <div className="relative p-8">
+                  <div className="absolute right-8 top-4 text-6xl font-light text-gray-800">{service.number}</div>
+                  <div className="relative">
+                    <div className="mb-6 inline-block rounded-sm border border-gray-700 p-4">
+                      <service.icon className="h-8 w-8 text-[#d4a574]" />
+                    </div>
+                    <h3 className="mb-4 text-2xl font-light text-white">{service.title}</h3>
+                    <p className="leading-relaxed text-gray-400">{service.description}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-blue-600 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-blue-100 mb-8 max-w-xl mx-auto">
-            Contact us today to discuss which services are right for your business.
-          </p>
-          <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-            <Link href="/contact">Contact Us Now</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Briefcase className="w-6 h-6 text-white" />
-                <span className="text-white font-bold">HMCFO LTD</span>
-              </div>
-              <p className="text-sm">Your trusted partner in business growth, efficiency, and success.</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li><Link href="/" className="text-sm hover:text-white transition-colors">Home</Link></li>
-                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Services</Link></li>
-                <li><Link href="/about" className="text-sm hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/contact" className="text-sm hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="text-sm hover:text-white transition-colors">Terms & Conditions</Link></li>
-                <li><Link href="/disclaimer" className="text-sm hover:text-white transition-colors">Disclaimer</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Contact Info</h4>
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+16468205995" className="text-sm hover:text-white transition-colors">+1 (646) 820 5995</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:contact@customerhelp.cc" className="text-sm hover:text-white transition-colors">contact@customerhelp.cc</a>
-                </div>
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                  <p className="text-xs leading-relaxed">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} HMCFO LTD. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
