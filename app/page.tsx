@@ -1,43 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle2, MapPin, Briefcase } from "lucide-react"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+import { CheckCircle2, MapPin } from "lucide-react"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header/Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-3">
-            <Briefcase className="w-8 h-8 text-blue-600" strokeWidth={2} />
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-gray-900 leading-tight">HMCFO LTD</span>
-              <span className="text-xs text-gray-600 leading-tight">Business Solutions</span>
-              <span className="text-xs text-gray-500 leading-tight">#16814928</span>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Home
-            </Link>
-            <Link href="/services" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Services
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:text-blue-600 transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/contact">Get Started</Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
@@ -187,49 +158,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Briefcase className="w-6 h-6 text-white" />
-                <span className="text-white font-bold">HMCFO LTD</span>
-              </div>
-              <p className="text-sm">Your trusted partner in business growth, efficiency, and success.</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
-              <ul className="space-y-2">
-                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Administrative Support</Link></li>
-                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Business Consultancy</Link></li>
-                <li><Link href="/services" className="text-sm hover:text-white transition-colors">HR & Staffing</Link></li>
-                <li><Link href="/services" className="text-sm hover:text-white transition-colors">Marketing & Branding</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="text-sm hover:text-white transition-colors">Terms & Conditions</Link></li>
-                <li><Link href="/disclaimer" className="text-sm hover:text-white transition-colors">Disclaimer</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Contact Info</h4>
-              <div className="space-y-3">
-                <div className="flex items-start gap-2 mt-2">
-                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                  <p className="text-xs leading-relaxed">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} HMCFO LTD. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
