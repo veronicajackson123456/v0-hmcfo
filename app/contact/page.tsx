@@ -6,14 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Mail, MapPin, Clock, Briefcase } from "lucide-react"
+import { MapPin, Clock, Briefcase } from "lucide-react"
 import { useState } from "react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
     company: "",
     service: "",
     message: "",
@@ -22,7 +20,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     alert("Thank you for your message! We will get back to you within 24 hours.")
-    setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" })
+    setFormData({ name: "", company: "", service: "", message: "" })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -77,16 +75,10 @@ export default function ContactPage() {
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                         <Input id="name" name="name" required value={formData.name} onChange={handleChange} placeholder="John Smith" />
                       </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                        <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="john@example.com" />
-                      </div>
+  
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+44 7400 000000" />
-                      </div>
+
                       <div>
                         <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
                         <Input id="company" name="company" value={formData.company} onChange={handleChange} placeholder="Your Company Ltd" />
@@ -124,32 +116,8 @@ export default function ContactPage() {
 
             {/* Contact Information */}
             <div className="space-y-6">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Phone className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                      <a href="tel:+16468205995" className="text-gray-600 hover:text-blue-600 transition-colors">+1 (646) 820 5995</a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Mail className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                      <a href="mailto:contact@customerhelp.cc" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">contact@customerhelp.cc</a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+
+
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, CheckCircle2, MapPin, Briefcase } from "lucide-react"
+import { CheckCircle2, MapPin, Briefcase } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -48,7 +48,7 @@ export default function HomePage() {
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed text-pretty">
             HMCFO LTD provides comprehensive business support services to help your company thrive. From administrative
-            support to financial management, we&apos;ve got you covered.
+            support to human resources and more, we&apos;ve got you covered.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -174,14 +174,6 @@ export default function HomePage() {
             <div className="bg-blue-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5" />
-                  <a href="tel:+16468205995" className="hover:underline">+1 (646) 820 5995</a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5" />
-                  <a href="mailto:contact@customerhelp.cc" className="hover:underline">contact@customerhelp.cc</a>
-                </div>
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <p className="text-sm">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
@@ -226,14 +218,6 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Contact Info</h4>
               <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+16468205995" className="text-sm hover:text-white transition-colors">+1 (646) 820 5995</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:contact@customerhelp.cc" className="text-sm hover:text-white transition-colors">contact@customerhelp.cc</a>
-                </div>
                 <div className="flex items-start gap-2 mt-2">
                   <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                   <p className="text-xs leading-relaxed">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
