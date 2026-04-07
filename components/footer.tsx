@@ -58,8 +58,38 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} HMCFO LTD. All rights reserved.</p>
+        {/* Bottom Bar */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-8 text-sm text-gray-500 md:flex-row">
+          <p>© 2025 HMCFO Ltd — All Rights Reserved.</p>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-end">
+            <Link href="/privacy-policy" className="transition-colors hover:text-[#d4a574]">
+              Privacy
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/terms-conditions" className="transition-colors hover:text-[#d4a574]">
+              Terms
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/cookie-policy" className="transition-colors hover:text-[#d4a574]">
+              Cookies
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/data-protection-gdpr" className="transition-colors hover:text-[#d4a574]">
+              GDPR
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/acceptable-use-policy" className="transition-colors hover:text-[#d4a574]">
+              AUP
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/financial-crime-prevention" className="transition-colors hover:text-[#d4a574]">
+              Compliance
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/disclaimer" className="transition-colors hover:text-[#d4a574]">
+              Disclaimer
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
