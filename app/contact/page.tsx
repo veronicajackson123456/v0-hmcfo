@@ -1,216 +1,163 @@
 "use client"
 
 import type React from "react"
-
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { MapPin, Clock, Briefcase } from "lucide-react"
 import { useState } from "react"
-import { Mail, UsersIcon,Phone, MapPin } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
+    name: "",
     company: "",
-    phone: "",
+    service: "",
     message: "",
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Handle form submission
+    alert("Thank you for your message! We will get back to you within 24 hours.")
+    setFormData({ name: "", company: "", service: "", message: "" })
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0e27]">
-      {/* Hero Section */}
-      <section className="relative h-[40vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80')`,
-          }}
-        >
-          <div className="absolute inset-0 bg-black/70" />
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          <Link href="/" className="flex items-center gap-3">
+            <Briefcase className="w-8 h-8 text-blue-600" strokeWidth={2} />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-gray-900 leading-tight">HMCFO LTD</span>
+              <span className="text-xs text-gray-600 leading-tight">Business Solutions</span>
+              <span className="text-xs text-gray-500 leading-tight">#: 16814928</span>
+            </div>
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <Link href="/" className="text-sm font-medium hover:text-blue-600 transition-colors">Home</Link>
+            <Link href="/services" className="text-sm font-medium hover:text-blue-600 transition-colors">Services</Link>
+            <Link href="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">About</Link>
+            <Link href="/contact" className="text-sm font-medium text-blue-600">Contact</Link>
+          </nav>
+          <Button asChild className="bg-blue-600 hover:bg-blue-700">
+            <Link href="/contact">Get Started</Link>
+          </Button>
         </div>
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
-          <h1 className="mb-6 text-5xl font-light text-white md:text-6xl">Contact Us</h1>
-          <p className="mx-auto max-w-2xl text-xl text-gray-400">Let's discuss how we can bring your vision to life</p>
-        </div>
-      </section>
+      </header>
 
-      {/* Contact Cards */}
-      <section className="bg-gradient-to-b from-[#0a0e27] to-[#1a1f3a] px-4 py-16">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
-          <div className="border border-gray-800 bg-black/30 p-8 text-center">
-            <div className="mb-4 inline-block rounded-sm border border-gray-700 p-4">
-              <Mail className="h-8 w-8 text-[#d4a574]" />
-            </div>
-            <h3 className="mb-3 text-xl font-light text-white">Email</h3>
-            <a href="mailto:info@hmcfo.cc" className="text-gray-400 transition-colors hover:text-[#d4a574]">
-              info@hmcfo.cc
-            </a>
-          </div>
-          <div className="border border-gray-800 bg-black/30 p-8 text-center">
-            <div className="mb-4 inline-block rounded-sm border border-gray-700 p-4">
-              <UsersIcon className="h-8 w-8 text-[#d4a574]" />
-            </div>
-            <h3 className="mb-3 text-xl font-light text-white">{"Customer Support"}</h3>
-            <a href="tel:+447400730791" className="text-gray-400 transition-colors hover:text-[#d4a574]">
-              www.customerhelp.cc contact@customerhelp.cc  
-            </a>
-          </div>
-          <div className="border border-gray-800 bg-black/30 p-8 text-center">
-            <div className="mb-4 inline-block rounded-sm border border-gray-700 p-4">
-              <MapPin className="h-8 w-8 text-[#d4a574]" />
-            </div>
-            <h3 className="mb-3 text-xl font-light text-white">Location</h3>
-            <p className="text-sm text-gray-400">
-              HMCFO LTD
-              <br />
-              Silverstream House
-              <br />
-              Fitzroy Street
-              <br />
-              Fitzrovia, London
-              <br />
-              W1T 6EB
-            </p>
-          </div>
+      {/* Page Header */}
+      <section className="bg-blue-600 text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+          <p className="text-blue-100 text-lg">{"We'd love to hear from you. Get in touch today."}</p>
         </div>
       </section>
 
-      {/* Registered Office */}
-      <section className="bg-[#1a1f3a] px-4 py-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="border border-gray-800 bg-black/30 p-8 text-center">
-            <h3 className="mb-4 text-xl font-light text-white">Registered Office</h3>
-            <p className="text-sm text-gray-400">
-              HMCFO LTD
-              <br />
-              Co no. 16814928
-              <br />
-              Silverstream House
-              <br />
-              Fitzroy Street
-              <br />
-              Fitzrovia, London
-              <br />
-              W1T 6EB
-            </p>
+      {/* Contact Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Contact Form */}
+            <div className="lg:col-span-2">
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                        <Input id="name" name="name" required value={formData.name} onChange={handleChange} placeholder="John Smith" />
+                      </div>
+  
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                      <div>
+                        <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                        <Input id="company" name="company" value={formData.company} onChange={handleChange} placeholder="Your Company Ltd" />
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service of Interest</label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs outline-none focus-visible:border-ring"
+                      >
+                        <option value="">Select a service...</option>
+                        <option value="Administrative Support">Administrative Support</option>
+                        <option value="Business Consultancy">Business Consultancy</option>
+                        <option value="Human Resources & Staffing">Human Resources & Staffing</option>
+                        <option value="Marketing & Branding">Marketing & Branding</option>
+                        <option value="IT & Digital Solutions">IT & Digital Solutions</option>
+                        <option value="Networking & Business Development">Networking & Business Development</option>
+                        <option value="Compliance & Legal Administration">Compliance & Legal Administration</option>
+                        <option value="Virtual Office & Outsourcing">Virtual Office & Outsourcing</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                      <Textarea id="message" name="message" required value={formData.message} onChange={handleChange} placeholder="Tell us about your needs..." rows={5} />
+                    </div>
+                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">Send Message</Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Information */}
+            <div className="space-y-6">
+
+
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-3 rounded-lg">
+                      <MapPin className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
+                      <p className="text-gray-600 text-sm">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-100 p-3 rounded-lg">
+                      <Clock className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
+                      <p className="text-gray-600 text-sm">Monday – Friday: 9:00 AM – 6:00 PM</p>
+                      <p className="text-gray-600 text-sm">Saturday: 10:00 AM – 2:00 PM</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="bg-gradient-to-b from-[#1a1f3a] to-[#0a0e27] px-4 py-16">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="mb-4 text-center text-3xl font-light text-white">Send Us a Message</h2>
-          <p className="mb-12 text-center text-gray-400">
-            Fill out the form below, and we&apos;ll get back to you within 24 hours!
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label htmlFor="fullName" className="mb-2 block text-sm text-gray-400">
-                  Full Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  required
-                  className="w-full border border-gray-700 bg-black/30 px-4 py-3 text-white placeholder-gray-600 focus:border-[#d4a574] focus:outline-none"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm text-gray-400">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  required
-                  className="w-full border border-gray-700 bg-black/30 px-4 py-3 text-white placeholder-gray-600 focus:border-[#d4a574] focus:outline-none"
-                />
-              </div>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label htmlFor="company" className="mb-2 block text-sm text-gray-400">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Your Company"
-                  className="w-full border border-gray-700 bg-black/30 px-4 py-3 text-white placeholder-gray-600 focus:border-[#d4a574] focus:outline-none"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="mb-2 block text-sm text-gray-400">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+44 7407 730791"
-                  className="w-full border border-gray-700 bg-black/30 px-4 py-3 text-white placeholder-gray-600 focus:border-[#d4a574] focus:outline-none"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="mb-2 block text-sm text-gray-400">
-                Message <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell us about your project..."
-                required
-                rows={6}
-                className="w-full border border-gray-700 bg-black/30 px-4 py-3 text-white placeholder-gray-600 focus:border-[#d4a574] focus:outline-none"
-              />
-            </div>
-
-            <div className="text-center">
-              <button
-                type="submit"
-                className="inline-flex items-center gap-2 border border-[#d4a574] bg-transparent px-8 py-3 text-sm tracking-wider text-[#d4a574] transition-colors hover:bg-[#d4a574] hover:text-black"
-              >
-                SEND MESSAGE
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </div>
-          </form>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="container mx-auto px-4">
+          <div className="border-t border-gray-800 pt-8 text-center text-sm">
+            <p>&copy; {new Date().getFullYear()} HMCFO LTD. All rights reserved.</p>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
   )
 }
