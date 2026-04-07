@@ -1,164 +1,163 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
-import { CheckCircle2, MapPin } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+
+const slides = [
+  {
+    title: "Creative Campaigns That Move Audiences",
+    description:
+      "HMCFO is a UK-based advertising agency specialising in the film and cinema industry, helping studios, distributors, and cinemas deliver campaigns that inspire, engage, and perform.",
+    image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1920&q=80",
+    button: "READ MORE",
+    link: "/about",
+  },
+  {
+    title: "Bringing Stories to Life",
+    description:
+      "We craft compelling narratives that resonate with audiences across all platforms, from cinema screens to digital channels.",
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80",
+    button: "EXPLORE FILMS",
+    link: "/portfolio",
+  },
+  {
+    title: "Strategic Cinema Marketing",
+    description:
+      "Partner with us to create unforgettable campaigns that drive box office success and build lasting audience connections.",
+    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920&q=80",
+    button: "OUR WORK",
+    link: "/portfolio",
+  },
+  {
+    title: "Innovative Digital Solutions",
+    description:
+      "From social media campaigns to immersive experiences, we leverage cutting-edge technology to amplify your film's reach.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80",
+    button: "DISCOVER MORE",
+    link: "/services",
+  },
+  {
+    title: "Award-Winning Creativity",
+    description:
+      "Our passion for cinema drives us to create campaigns that not only win awards but also win hearts and box office numbers.",
+    image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1920&q=80",
+    button: "VIEW PORTFOLIO",
+    link: "/portfolio",
+  },
+]
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <Header />
+    <div className="relative min-h-screen">
+      {/* Hero Slider */}
+      <div className="relative h-screen overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${slide.image})`,
+              }}
+            >
+              <div className="absolute inset-0 bg-black/60" />
+            </div>
+            <div className="relative z-10 flex h-full items-center justify-center px-4">
+              <div className="max-w-4xl text-center">
+                <h1 className="mb-6 text-5xl font-light leading-tight text-white md:text-7xl">{slide.title}</h1>
+                <p className="mb-8 text-lg text-gray-300 md:text-xl">{slide.description}</p>
+                <Link
+                  href={slide.link}
+                  className="inline-block border border-white px-8 py-3 text-sm tracking-wider text-white transition-colors hover:bg-white hover:text-black"
+                >
+                  {slide.button}
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight text-balance">
-            Your Trusted Partner in{" "}
-            <span className="text-blue-600">Business Growth</span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed text-pretty">
-            HMCFO LTD provides comprehensive business support services to help your company thrive. From administrative
-            support to human resources and more, we&apos;ve got you covered.
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 z-20 -translate-y-1/2 text-white opacity-50 transition-opacity hover:opacity-100 md:left-8"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={48} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 z-20 -translate-y-1/2 text-white opacity-50 transition-opacity hover:opacity-100 md:right-8"
+          aria-label="Next slide"
+        >
+          <ChevronRight size={48} />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 right-8 z-20 flex flex-col gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 w-2 rounded-full transition-all ${index === currentSlide ? "bg-white" : "bg-white/30"}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Slide Counter */}
+        <div className="absolute bottom-8 left-8 z-20 text-sm text-white">
+          {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section className="bg-gradient-to-b from-[#0a0e27] to-[#1a1f3a] px-4 py-24">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-center text-xl leading-relaxed text-gray-300 md:text-2xl">
+            At <span className="text-[#d4a574]">HMCFO</span>, we blend{" "}
+            <span className="text-[#d4a574]">creativity</span>, <span className="text-[#d4a574]">strategy</span>, and{" "}
+            <span className="text-[#d4a574]">cinematic storytelling</span> to deliver advertising experiences that move
+            people — both emotionally and visually.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-              <Link href="/services">Explore Our Services</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/contact">Contact Us Today</Link>
-            </Button>
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
-              <span>UK Registered Company</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
-              <span>Professional Services</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
-              <span>Dedicated Support</span>
-            </div>
+          <p className="mt-8 text-center text-lg text-gray-400">
+            From blockbuster film launches to cinema rebranding, we help studios, distributors, and entertainment brands
+            shine on every screen.
+          </p>
+          <div className="mt-12 text-center">
+            <h2 className="mb-4 text-3xl font-light text-white">Let's bring your vision to life — talk to us today.</h2>
+            <Link
+              href="/contact"
+              className="inline-block border border-[#d4a574] px-8 py-3 text-sm tracking-wider text-[#d4a574] transition-colors hover:bg-[#d4a574] hover:text-black"
+            >
+              GET IN TOUCH
+            </Link>
+            <p className="mt-4 text-sm text-gray-500">Available for projects worldwide</p>
           </div>
         </div>
       </section>
-
-      {/* Services Overview */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-balance">Comprehensive Business Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-pretty">
-              We offer a wide range of professional services designed to support every aspect of your business operations.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Administrative Support",
-                desc: "Virtual assistance, document management, and office workflow optimisation.",
-                icon: "📝",
-              },
-              {
-                title: "Business Consultancy",
-                desc: "Strategic planning, market research, and operational efficiency reviews.",
-                icon: "💼",
-              },
-              {
-                title: "Human Resources & Staffing",
-                desc: "Recruitment, HR policy creation, payroll, and employee relations.",
-                icon: "👔",
-              },
-              {
-                title: "Marketing & Branding",
-                desc: "Brand strategy, SEO, social media management, and email campaigns.",
-                icon: "📢",
-              },
-              {
-                title: "IT & Digital Solutions",
-                desc: "Website development, cloud infrastructure, and cybersecurity.",
-                icon: "💻",
-              },
-              {
-                title: "Compliance & Legal Administration",
-                desc: "Regulatory compliance, GDPR, contract management, and policy review.",
-                icon: "⚖️",
-              },
-            ].map((service) => (
-              <Card key={service.title} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <div className="text-3xl mb-3">{service.icon}</div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{service.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/services">View All Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-balance">
-                Why Choose HMCFO LTD?
-              </h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "Experienced Professionals",
-                    desc: "Our team brings years of expertise across multiple business disciplines.",
-                  },
-                  {
-                    title: "Tailored Solutions",
-                    desc: "We customise our services to meet your specific business needs and goals.",
-                  },
-                  {
-                    title: "Cost-Effective",
-                    desc: "Get premium business support without the overhead of full-time employees.",
-                  },
-                  {
-                    title: "UK Registered",
-                    desc: "Fully registered company in England & Wales (Co no. 16814928).",
-                  },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                      <p className="text-sm text-gray-600">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-blue-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm">Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom</p>
-                </div>
-              </div>
-              <Button asChild className="mt-6 bg-white text-blue-600 hover:bg-gray-100 w-full">
-                <Link href="/contact">Send Us a Message</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
     </div>
   )
 }

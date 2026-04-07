@@ -1,4 +1,9 @@
-import { redirect } from "next/navigation"
+export default function TermsConditionsPage() {
+  return (
+    <div className="min-h-screen bg-[#0a0e27]">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+        <h1 className="mb-8 text-center text-5xl font-light text-white">Terms & Conditions</h1>
+        <p className="mb-12 text-center text-gray-400">Last Updated: November 2025</p>
 
         {/* Company Info Banner */}
         <div className="mb-12 border-2 border-[#d4a574] bg-[#d4a574]/5 p-6">

@@ -3,23 +3,34 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "HMCFO LTD - Comprehensive Business Support Services",
+  title: "HMCFO - Creative Film Advertising & Cinema Marketing Solutions",
   description:
-    "Your trusted partner in growth, efficiency, and success. HMCFO LTD provides comprehensive business support services including administrative support, HR, consultancy, and more.",
-  keywords:
-    "business support, administrative services, HR solutions, business consultancy, HMCFO",
-  authors: [{ name: "HMCFO LTD" }],
-  openGraph: {
-    title: "HMCFO LTD - Comprehensive Business Support Services",
-    description: "Your trusted partner in growth, efficiency, and success.",
-    type: "website",
-  },
+    "HMCFO is a UK-based advertising agency specialising in the film and cinema industry, helping studios, distributors, and cinemas deliver campaigns that inspire, engage, and perform.",
   generator: "v0.app",
+  icons: {
+    icon: [
+      {
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-icon.png",
+  },
 }
 
 export default function RootLayout({
@@ -29,8 +40,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
-        {children}
+      <body className={`font-sans antialiased`}>
+        <Header />
+        <main className="pt-16">{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>

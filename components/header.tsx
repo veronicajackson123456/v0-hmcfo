@@ -3,40 +3,38 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Briefcase } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Menu, X, ChevronDown, Home } from "lucide-react"
+import Image from "next/image"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "SERVICES", href: "/services" },
+    { name: "ABOUT", href: "/about" },
+    { name: "PORTFOLIO", href: "/portfolio" },
+    { name: "CONTACT", href: "/contact" },
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-3">
-          <Briefcase className="w-8 h-8 text-blue-600" strokeWidth={2} />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-gray-900 leading-tight">HMCFO LTD</span>
-            <span className="text-xs text-gray-600 leading-tight">Business Solutions</span>
-            <span className="text-xs text-gray-500 leading-tight">#: 16814928</span>
+    <header className="fixed left-0 right-0 top-0 z-50 bg-black/80 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+            <span className="text-sm font-semibold text-black">HMCFO</span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                pathname === item.href ? "text-blue-600" : "text-gray-700"
+              className={`text-sm tracking-wider transition-colors hover:text-[#d4a574] ${
+                pathname === item.href ? "text-[#d4a574]" : "text-white"
               }`}
             >
               {item.name}
@@ -44,35 +42,40 @@ export default function Header() {
           ))}
         </nav>
 
-        <Button asChild className="hidden md:flex bg-blue-600 hover:bg-blue-700">
-          <Link href="/contact">Get Started</Link>
-        </Button>
+        {/* Right Side - Language & Home */}
+        <div className="hidden items-center gap-4 md:flex">
+          <div className="flex items-center gap-2">
+            <Image src="https://flagcdn.com/w40/gb.png" alt="UK" width={20} height={15} className="h-4 w-auto" />
+            <span className="text-sm text-white">UK</span>
+            <ChevronDown className="h-4 w-4 text-white" />
+          </div>
+          <Link href="/" className="text-white transition-colors hover:text-[#d4a574]">
+            <Home className="h-5 w-5" />
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-gray-700" aria-label="Toggle menu">
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white md:hidden" aria-label="Toggle menu">
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="border-t bg-white md:hidden">
+        <div className="border-t border-gray-800 bg-black md:hidden">
           <nav className="flex flex-col px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`border-b border-gray-100 py-3 text-sm font-medium transition-colors hover:text-blue-600 ${
-                  pathname === item.href ? "text-blue-600" : "text-gray-700"
+                className={`border-b border-gray-800 py-4 text-sm tracking-wider transition-colors hover:text-[#d4a574] ${
+                  pathname === item.href ? "text-[#d4a574]" : "text-white"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="mt-4 bg-blue-600 hover:bg-blue-700">
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
-            </Button>
           </nav>
         </div>
       )}

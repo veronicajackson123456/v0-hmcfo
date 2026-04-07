@@ -1,58 +1,121 @@
 import Link from "next/link"
-import { Mail, Phone, MapPin, Briefcase } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <footer className="bg-black px-4 py-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-12 md:grid-cols-5">
+          {/* Logo & Tagline */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Briefcase className="w-6 h-6 text-white" />
-              <span className="text-white font-bold">HMCFO LTD</span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              Your trusted partner in business growth, efficiency, and success.
+            <Link href="/" className="mb-4 inline-block">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white">
+                <span className="text-sm font-semibold text-black">HMCFO</span>
+              </div>
+            </Link>
+            <p className="text-sm leading-relaxed text-gray-400">
+              Creative advertising solutions for the film and cinema industry.
             </p>
-            <p className="text-xs mt-3 text-gray-500">Co no. 16814928 — Registered in England & Wales</p>
           </div>
 
+          {/* Company Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">Administrative Support</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">Business Consultancy</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">HR & Staffing</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">Marketing & Branding</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">IT & Digital Solutions</Link></li>
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white">Company</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/about" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Services Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-sm hover:text-white transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/disclaimer" className="text-sm hover:text-white transition-colors">Disclaimer</Link></li>
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white">Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/services" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Film Launch Campaigns
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Cinema Branding
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Digital Advertising
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  Creative Production
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Get In Touch */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Contact Info</h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <a href="tel:+16468205995" className="text-sm hover:text-white transition-colors">+1 (646) 820 5995</a>
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white">Get In Touch</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <Mail className="mt-0.5 h-4 w-4 text-[#d4a574]" />
+                <a href="mailto:info@hmcfo.cc" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  info@hmcfo.cc
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="mt-0.5 h-4 w-4 text-[#d4a574]" />
+                <a href="tel:+447407730791" className="text-gray-400 transition-colors hover:text-[#d4a574]">
+                  +44 7400 730791     
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#d4a574]" />
+                <span className="text-gray-400">
+                  HMCFO LTD
+                  <br />
+                  Silverstream House
+                  <br />
+                  Fitzroy Street
+                  <br />
+                  Fitzrovia, London
+                  <br />
+                  W1T 6EB
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company Details */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white">Company Details</h3>
+            <div className="space-y-4">
+              <div className="border border-[#d4a574] bg-[#d4a574]/10 px-4 py-3">
+                <p className="text-xs text-gray-400">Company Registration</p>
+                <p className="text-lg font-semibold text-[#d4a574]">Co no. 16814928</p>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:contact@customerhelp.cc" className="text-sm hover:text-white transition-colors">contact@customerhelp.cc</a>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <p className="text-xs leading-relaxed">
-                  Silverstream House, Fitzroy Street, Fitzrovia, London W1T 6EB, United Kingdom
-                </p>
+              <div className="text-sm text-gray-400">
+                <p className="font-semibold text-white">HMCFO LTD</p>
+                <p>UK Registered Company</p>
               </div>
             </div>
           </div>
