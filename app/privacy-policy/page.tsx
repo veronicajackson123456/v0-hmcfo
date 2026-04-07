@@ -5,6 +5,24 @@ export default function PrivacyPolicyPage() {
         <h1 className="mb-8 text-center text-5xl font-light text-white">Privacy Policy</h1>
         <p className="mb-12 text-center text-gray-400">Last Updated: November 2025</p>
 
+        {/* Company Info Banner */}
+        <div className="mb-12 border-2 border-[#d4a574] bg-[#d4a574]/5 p-6">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#d4a574]">Company Name</p>
+              <p className="mt-1 text-white">HMCFO LTD</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#d4a574]">Company Registration</p>
+              <p className="mt-1 text-lg font-semibold text-[#d4a574]">Co no. 16814928</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#d4a574]">Jurisdiction</p>
+              <p className="mt-1 text-white">England & Wales</p>
+            </div>
+          </div>
+        </div>
+
         <div className="space-y-8 text-gray-300">
           <section>
             <h2 className="mb-4 text-2xl font-light text-white">1. Introduction</h2>
